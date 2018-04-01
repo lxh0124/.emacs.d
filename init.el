@@ -16,7 +16,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 
-
 ;; default UI part
 (setq-default cursor-type 'hbar)
 (menu-bar-mode -1)
@@ -73,10 +72,7 @@
   :config
   (window-numbering-mode 1))
 
-(use-package solarized-theme
-  :config
-  (load-theme 'solarized-dark t))
-
+(load-theme 'blackboard t)
 
 (use-package helm
   :diminish helm-mode
@@ -176,6 +172,10 @@
 
 (use-package magit)
 
+(use-package swiper-helm
+  :bind
+  ("C-s" . swiper))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -186,7 +186,7 @@
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(package-selected-packages
    (quote
-    (magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
+    (swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
