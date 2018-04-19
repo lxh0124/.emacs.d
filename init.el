@@ -1,17 +1,14 @@
 (require 'package)
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+
 
 (package-initialize)
 
 (setq user-full-name "Tony Li")
 (setq user-mail-address "lxh0124@126.com")
 
-(unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
-(unless (assoc-default "org" package-archives)
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
 
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
@@ -72,7 +69,9 @@
   :config
   (window-numbering-mode 1))
 
-(load-theme 'blackboard t)
+(use-package blackboard-theme
+  :config
+  (load-theme 'blackboard t))
 
 (use-package helm
   :diminish helm-mode
