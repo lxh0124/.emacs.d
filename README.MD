@@ -20,4 +20,7 @@
 
 6, type "P" will push the change to remote branch
 
-7, can choose 'u' to push to origin/master branch
+7, 2 options:
+
+- choose 'u' to push to origin/master branch
+- choose 'p' will list the branch

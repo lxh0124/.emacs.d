@@ -169,7 +169,9 @@
   (projectile-global-mode))
 (use-package helm-projectile)
 
-(use-package magit)
+(use-package magit
+  :bind
+  (("C-x g" . magit-status)))
 
 (use-package swiper-helm
   :bind
