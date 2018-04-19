@@ -21,6 +21,7 @@
 (global-linum-mode 1)
 (display-time-mode 1)
 
+(setq inhibit-startup-screen 1)
 (global-set-key (kbd "M-RET") 'other-window)
 
 (setq show-paren-delay 0)
