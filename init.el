@@ -21,8 +21,24 @@
 (global-linum-mode 1)
 (display-time-mode 1)
 
+(setq default-fill-column 80)
+(setq x-select-enable-clipboard t)
+(setq inhibit-splash-screen t)
 (setq inhibit-startup-screen 1)
 (global-set-key (kbd "M-RET") 'other-window)
+(global-set-key [f9] 'calendar)
+(global-set-key [f10] 'list-bookmarks)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+
+(setq frame-title-format "emacs@%b")
+
+(global-set-key (kbd "M-g") 'goto-line)
+
+;; Shift + space -> set mark
+(global-set-key (kbd "C-SPC") 'nil)
+(global-set-key [?\S- ] 'set-mark-command)
+
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
@@ -73,6 +89,11 @@
 (use-package blackboard-theme
   :config
   (load-theme 'blackboard t))
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 (use-package helm
   :diminish helm-mode
@@ -138,6 +159,10 @@
 (recentf-mode)
 
 ;; js development
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+(use-package js-comint)
 
 (use-package js2-mode
   :commands js2-mode
@@ -148,13 +173,10 @@
     (add-to-list 'interpreter-mode-alist (cons "node" 'js2-mode)))
   :config
   (progn
-    (js2-imenu-extras-setup)
     (bind-key "C-x C-e" 'js-send-last-sexp js2-mode-map)
     (bind-key "C-M-x" 'js-send-last-sexp-and-go js2-mode-map)
     (bind-key "C-c b" 'js-send-buffer js2-mode-map)
-    (bind-key "C-c d" 'my/insert-or-flush-debug js2-mode-map)
-    (bind-key "C-c C-b" 'js-send-buffer-and-go js2-mode-map)
-    (bind-key "C-c w" 'my/copy-javascript-region-or-buffer js2-mode-map)))
+    (bind-key "C-c C-b" 'js-send-buffer-and-go js2-mode-map)))
 
 
 (use-package projectile
@@ -188,7 +210,7 @@
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(package-selected-packages
    (quote
-    (swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
+    (exec-path-from-shell js-comint editorconfig swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
