@@ -25,6 +25,6 @@
 - choose 'u' to push to origin/master branch
 - choose 'p' will list the branch
 
-# js-refactor link:
+# js2-refactor link:
 
 https://github.com/magnars/js2-refactor.el
