@@ -186,6 +186,11 @@
     (js2r-add-keybindings-with-prefix "C-c C-m")))
 
 
+(use-package xref-js2
+  :config
+  (progn
+    (define-key js2-mode-map (kbd "M-.") nil)
+    (add-hook 'js2-mode-hook (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))))
 
 (use-package projectile
   :diminish projectile-mode
@@ -218,7 +223,7 @@
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(package-selected-packages
    (quote
-    (ace-jump-mode exec-path-from-shell js-comint editorconfig swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
+    (xref-js2 ace-jump-mode exec-path-from-shell js-comint editorconfig swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
