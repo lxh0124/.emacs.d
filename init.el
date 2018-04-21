@@ -178,6 +178,14 @@
     (bind-key "C-c b" 'js-send-buffer js2-mode-map)
     (bind-key "C-c C-b" 'js-send-buffer-and-go js2-mode-map)))
 
+(use-package js2-refactor
+  :init
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  :config
+  (progn
+    (js2r-add-keybindings-with-prefix "C-c C-m")))
+
+
 
 (use-package projectile
   :diminish projectile-mode
@@ -210,7 +218,7 @@
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell js-comint editorconfig swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
+    (ace-jump-mode exec-path-from-shell js-comint editorconfig swiper-helm magit solarized-theme helm-projectile helm-swoop color-theme-solarized color-theme miniedit smart-mode-line helm-descbinds auto-compile window-numbering use-package projectile js2-refactor helm company blackboard-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
