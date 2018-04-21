@@ -1,4 +1,4 @@
-# Setup my emacs configuraiton
+# Setup emacs configuraiton
 
 1, setup Javascript development
 
