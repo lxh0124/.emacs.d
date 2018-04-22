@@ -30,6 +30,11 @@
 (global-set-key [f10] 'list-bookmarks)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
 
 (setq frame-title-format "emacs@%b")
 
@@ -66,8 +71,8 @@
 (global-set-key (kbd "<f2>") 'openInitFile)
 
 (require 'org)
-(define-key global-map "\C-c l" 'org-store-link)
-(define-key global-map "\C-c a" 'org-agenda)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
                              "~/org/school.org" 
@@ -244,6 +249,7 @@
 (use-package swiper-helm
   :bind
   ("C-s" . swiper))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
