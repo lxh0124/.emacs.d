@@ -66,8 +66,8 @@
 (global-set-key (kbd "<f2>") 'openInitFile)
 
 (require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-c l" 'org-store-link)
+(define-key global-map "\C-c a" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
                              "~/org/school.org" 
@@ -75,6 +75,24 @@
 
 
 (pop-to-buffer (find-file "~/org/work.org"))
+
+(setq org-highest-priority ?A)
+(setq org-lowest-priority ?C)
+(setq org-default-priority ?A)
+
+(setq org-priority-faces '((?A . (:foreground "#F0DFAF" :weight bold))
+                           (?B . (:foreground "LightSteelBlue"))
+                           (?C . (:foreground "OliveDrab"))))
+
+(setq org-agenda-window-setup (quote current-window))
+(setq org-deadline-warning-days 7)
+(setq org-agenda-span (quote fortnight))
+
+;;capture todo items using C-c c t
+(define-key global-map (kbd "C-c c") 'org-capture)
+(setq org-capture-templates
+      '(("t" "todo" entry (file+headline "~/org/work.org" "Tasks")
+         "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n")))
 
 
 ;; third party package
