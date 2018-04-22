@@ -50,6 +50,9 @@
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 
+
+(desktop-save-mode 1)
+
 ;; set default browser
 (setq browse-url-generic-program "google-chrome")
 (setq browse-url-browser-function 'browse-url-generic)
@@ -61,6 +64,17 @@
   (find-file "~/.emacs.d/init.el"))
 
 (global-set-key (kbd "<f2>") 'openInitFile)
+
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/school.org" 
+                             "~/org/home.org"))
+
+
+(pop-to-buffer (find-file "~/org/work.org"))
 
 
 ;; third party package
